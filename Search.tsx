@@ -115,9 +115,9 @@ export const Search: FC<{}> = ({}) => {
         />
       </div>
       <div className="is-info message">
-        <div className="message-body">
+        {/* <div className="message-body">
           This will search Nuget.org for any packages with the following tags
-        </div>
+        </div> */}
       </div>
       <div className="tags are-medium">
         <Tag
@@ -132,53 +132,79 @@ export const Search: FC<{}> = ({}) => {
           isSelected={isSelected}
           setSelected={setSelected}
         />
+      </div>
+      <div className="tags are-medium">
+        <Tag
+          query="fable:all"
+          title="Supports all fable language targets (including future targets) as there is no target-specific code present"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+        <Tag
+          query="fable:ts"
+          title="Supports typescript as a fable compilation target"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+        <Tag
+          query="fable:js"
+          title="Supports javascript as a fable compilation target"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+        <Tag
+          query="fable:python"
+          title="supports python as a fable compilation target"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+        <Tag
+          query="fable:dart"
+          title="supports dart as a fable compilation target"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+        <Tag
+          query="fable:rust"
+          title="supports rust  as a fable compilation target"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+        <Tag
+          query="fable:php"
+          title="supports php as a fable compilation target"
+          isSelected={isSelected}
+          setSelected={setSelected}
+        />
+      </div>
+      <div className="tags">
         <Tag
           query="fable-binding:js"
           title="Binds to an existing js library from the npm ecosystem"
           isSelected={isSelected}
           setSelected={setSelected}
         />
-      </div>
-      <div className="tags are-medium">
         <Tag
-          query="fable-target:all"
-          title="Supports all fable language targets (including future targets) as there is no target-specific code present"
+          query="fable-binding:ts"
+          title="Binds to an existing ts library from the npm ecosystem"
           isSelected={isSelected}
           setSelected={setSelected}
         />
         <Tag
-          query="fable-target:ts"
-          title="Supports typescript as a fable compilation target"
+          query="fable-binding:python"
+          title="Binds to an existing python library"
           isSelected={isSelected}
           setSelected={setSelected}
         />
         <Tag
-          query="fable-target:js"
-          title="Supports javascript as a fable compilation target"
+          query="fable-binding:dart"
+          title="Binds to an existing dart library"
           isSelected={isSelected}
           setSelected={setSelected}
         />
         <Tag
-          query="fable-target:python"
-          title="supports python as a fable compilation target"
-          isSelected={isSelected}
-          setSelected={setSelected}
-        />
-        <Tag
-          query="fable-target:dart"
-          title="supports dart as a fable compilation target"
-          isSelected={isSelected}
-          setSelected={setSelected}
-        />
-        <Tag
-          query="fable-target:rust"
-          title="supports rust  as a fable compilation target"
-          isSelected={isSelected}
-          setSelected={setSelected}
-        />
-        <Tag
-          query="fable-target:php"
-          title="supports php as a fable compilation target"
+          query="fable-binding:rust"
+          title="Binds to an existing rust library from the cargo ecosystem"
           isSelected={isSelected}
           setSelected={setSelected}
         />
@@ -189,12 +215,12 @@ export const Search: FC<{}> = ({}) => {
       ) : null}
 
       {data.data.map((d) => (
-        <div style={{ padding: 10 }} className="container">
-          <div className="notification is-primary is-light">
+        <div style={{ margin: 10 }} className="card article">
+          <div className="card-content">
             <a href={d.projectUrl} style={{ textDecoration: 'none' }}>
               <div className="columns">
                 <div className="column">
-                  <img src={d.iconUrl} width={100} />
+                  <img src={d.iconUrl} width={70} height={70} />
                 </div>
                 <div
                   className="column"
